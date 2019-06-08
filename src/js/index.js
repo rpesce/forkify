@@ -1,6 +1,4 @@
 //install axios via npm
-
-
 import axios from 'axios';
 
 async function getResults(query) {
