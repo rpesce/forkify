@@ -1,5 +1,18 @@
-// Global app controller
-import ab from './test';
+//install axios via npm
 
-const x = 23;
-console.log(`I imported ${ab} from another module mucho loko ${x} hahaha`);
+
+import axios from 'axios';
+
+async function getResults(query) {
+    const proxy = 'www.exampleproxy.com/';
+    const key = 'authkeystring';
+    try {
+        const res = await axios(`${proxy}www.url.com/${key}`);
+        const recipes = res.data.recipes;
+        console.log(recipes);
+    } catch (error) {
+        alert(error);
+    }
+};
+
+getResults('pizza');
