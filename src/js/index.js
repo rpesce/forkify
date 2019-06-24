@@ -89,7 +89,7 @@ const controlRecipe = async () => {
             clearLoader();
             recipeView.renderRecipe(
                 state.recipe,
-                state.liked.isLiked(id)
+                state.likes.isLiked(id)
             );
         } catch (err) {
             alert(err);
@@ -164,10 +164,18 @@ const controlLike = () => {
         //Remove like from likes list
         likesView.deleteLike(currentID);
     }
-    likesView.toggleLikeMenu(state.likes.getNumLikes());
+    const test = likesView.toggleLikeMenu(state.likes.getNbrLikes());
 };
 
-
+window.addEventListener('load', () => {
+    state.likes = new Likes();
+    //Restore links
+    const test = state.likes.readStorage();
+    //Toggle like btn menu
+    likesView.toggleLikeMenu(state.likes.getNbrLikes());
+    //Render list
+    state.likes.likes.forEach(like => likesView.renderLike(like));
+});
 
 
 // Handling recipe button clicks
