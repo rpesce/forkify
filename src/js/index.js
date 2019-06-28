@@ -148,7 +148,7 @@ const controlLike = () => {
             currentID,
             state.recipe.title,
             state.recipe.author,
-            state.recipe.img,
+            state.recipe.img
         );
         //Toggle the button
         likesView.toggleLikeBtn(true);
@@ -164,15 +164,15 @@ const controlLike = () => {
         //Remove like from likes list
         likesView.deleteLike(currentID);
     }
-    const test = likesView.toggleLikeMenu(state.likes.getNbrLikes());
+    likesView.toggleLikeMenu(state.likes.getNumLikes());
 };
 
 window.addEventListener('load', () => {
     state.likes = new Likes();
     //Restore links
-    const test = state.likes.readStorage();
+    state.likes.readStorage();
     //Toggle like btn menu
-    likesView.toggleLikeMenu(state.likes.getNbrLikes());
+    likesView.toggleLikeMenu(state.likes.getNumLikes());
     //Render list
     state.likes.likes.forEach(like => likesView.renderLike(like));
 });

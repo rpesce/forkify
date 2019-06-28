@@ -16,8 +16,8 @@ export const highlightSelected = id => {
         el.classList.remove('results__link--active');
     })
 
-    document.querySelector(`.results__link[href='#${id}']`).classList.add('results__link--active');
-}
+    document.querySelector(`.results__link[href*="${id}"]`).classList.add('results__link--active');
+};
 
 export const limitRecipeTitle = (title, limit = 17) => {
     const newTitle = [];
@@ -31,7 +31,7 @@ export const limitRecipeTitle = (title, limit = 17) => {
         return `${newTitle.join(' ')} ...`;
     }
     return title;
-}
+};
 
 const renderRecipe = recipe => {
     const markup = `

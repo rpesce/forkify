@@ -16,8 +16,8 @@ export default class Likes {
     isLiked(id){
         return this.likes.findIndex(el => el.id === id) !== -1;
     }
-    getNbrLikes() {
-        this.likes.length;
+    getNumLikes() {
+        return this.likes.length;
     }
     persistData(){
         localStorage.setItem('likes', JSON.stringify(this.likes));
